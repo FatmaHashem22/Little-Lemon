@@ -1,0 +1,109 @@
+package com.example.littlelemon.screens
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.littlelemon.R
+import com.example.littlelemon.components.ButtonComponent
+import com.example.littlelemon.components.CheckBoxComponent
+import com.example.littlelemon.components.ClickableTextComponent
+import com.example.littlelemon.components.ClickableTextOptionComponent
+import com.example.littlelemon.components.DividerComponent
+import com.example.littlelemon.components.HeaderTextComponent
+import com.example.littlelemon.components.NormalTextComponent
+import com.example.littlelemon.components.PasswordTextFieldComponent
+import com.example.littlelemon.components.TextFieldComponent
+import com.example.littlelemon.navigation.Login
+import com.example.littlelemon.ui.theme.emailOutlinedIcon
+import com.example.littlelemon.ui.theme.green
+import com.example.littlelemon.ui.theme.profileOutlinedIcon
+import com.example.littlelemon.ui.theme.yellow
+
+@Composable
+fun SignUpScreen(navController: NavHostController) {
+
+    Surface (
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .padding(28.dp)
+    ) {
+
+        Column (
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+        ) {
+
+            NormalTextComponent(
+                value = stringResource(id = R.string.hey_there),
+                color = green,
+                textAlign = TextAlign.Center
+            )
+
+            HeaderTextComponent(
+                value = stringResource(id = R.string.create_account),
+                color = yellow,
+                textAlign = TextAlign.Center
+            )
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            TextFieldComponent(
+                labelValue = stringResource(id = R.string.first_name), imageVector = profileOutlinedIcon)
+
+            TextFieldComponent(labelValue = stringResource(id = R.string.last_name), imageVector = profileOutlinedIcon)
+
+            TextFieldComponent(labelValue = stringResource(id = R.string.email), imageVector = emailOutlinedIcon)
+
+            PasswordTextFieldComponent(labelValue = stringResource(id = R.string.password))
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            CheckBoxComponent(navController)
+
+            Spacer(modifier = Modifier.height(50.dp))
+
+            ButtonComponent(
+                value = stringResource(id = R.string.register),
+                navController = navController,
+                destination = Login.route
+            )
+
+            DividerComponent()
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            ClickableTextOptionComponent(
+                normalText = stringResource(id = R.string.already_have_account),
+                clickcableText = stringResource(id = R.string.login),
+                navController = navController,
+                destination = Login.route
+
+            )
+
+        }
+
+
+
+    }
+
+}
+
+@Preview
+@Composable
+fun DefaultPreviewOfSignUpScreen() {
+//    SignUpScreen()
+}

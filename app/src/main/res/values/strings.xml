@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">LittleLemon</string>
+    <string name="hey_there">Hey there,</string>
+    <string name="create_account">Create an Account</string>
+    <string name="welcome">Welcome Back</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="show_password">Show Password</string>
+    <string name="hide_password">Hide Password</string>
+    <string name="initial_policy_text">"By continuing you accept our " </string>
+    <string name="last_policy_text">Terms of Use</string>
+    <string name="terms_and_conditions_header">Terms of Use</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="already_have_account">Already have an Account?</string>
+</resources>
