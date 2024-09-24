@@ -15,4 +15,6 @@
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="already_have_account">Already have an Account?</string>
+    <string name="no_account_yet">Don\'t have an account yet?</string>
+    <string name="forgot_password">Forgot password?</string>
 </resources>

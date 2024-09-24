@@ -88,7 +88,7 @@ fun SignUpScreen(navController: NavHostController) {
 
             ClickableTextOptionComponent(
                 normalText = stringResource(id = R.string.already_have_account),
-                clickcableText = stringResource(id = R.string.login),
+                clickableText = stringResource(id = R.string.login),
                 navController = navController,
                 destination = Login.route
 

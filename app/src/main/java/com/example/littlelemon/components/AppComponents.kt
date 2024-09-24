@@ -30,6 +30,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -98,7 +99,7 @@ fun HeaderTextComponent(value: String, color: Color, textAlign: TextAlign) {
 @Composable
 fun TextFieldComponent(labelValue: String, imageVector: ImageVector) {
 
-    val textValue = remember {
+    val textValue = rememberSaveable {
         mutableStateOf("")
     }
 
@@ -125,9 +126,39 @@ fun TextFieldComponent(labelValue: String, imageVector: ImageVector) {
 }
 
 @Composable
+fun TestTextFieldComponent(labelValue: String, imageVector: ImageVector, onClick : () -> Unit) {
+
+    val textValue = rememberSaveable {
+        mutableStateOf("")
+    }
+
+    OutlinedTextField(
+        value = textValue.value,
+        label = { Text(text = labelValue) },
+        modifier = Modifier
+            .fillMaxWidth(),
+        onValueChange = { onClick },
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = yellow,
+            unfocusedBorderColor = lightGray,
+            cursorColor = yellow,
+            focusedContainerColor = lightGray,
+            unfocusedContainerColor = lightGray,
+            unfocusedLeadingIconColor = gray,
+            focusedLeadingIconColor = yellow
+        ),
+        keyboardOptions = KeyboardOptions.Default,
+        shape = RoundedCornerShape(22.dp),
+        leadingIcon = { Icon(imageVector = imageVector, contentDescription = "") }
+
+    )
+}
+
+
+@Composable
 fun PasswordTextFieldComponent(labelValue: String) {
 
-    val password = remember {
+    val password = rememberSaveable {
         mutableStateOf("")
     }
 
@@ -187,7 +218,7 @@ fun CheckBoxComponent(navController: NavHostController) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start
     ) {
-        val checkedState = remember {
+        val checkedState = rememberSaveable {
             mutableStateOf(false)
         }
         Checkbox(
@@ -222,7 +253,7 @@ fun ClickableTextComponent(navController: NavHostController) {
 
 
 @Composable
-fun ClickableTextOptionComponent(normalText : String, clickcableText: String, navController: NavHostController, destination: String) {
+fun ClickableTextOptionComponent(normalText : String, clickableText: String, navController: NavHostController, destination: String) {
 
     Row (
         modifier = Modifier.fillMaxWidth(),
@@ -231,7 +262,7 @@ fun ClickableTextOptionComponent(normalText : String, clickcableText: String, na
         Text(text = normalText, color = charcoal,fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
         Spacer(modifier = Modifier.width(6.dp))
         Text(
-            text = clickcableText,
+            text = clickableText,
             color = gray,
             fontSize = 18.sp,
             fontWeight = FontWeight.SemiBold,
