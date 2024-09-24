@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.littlelemon.model.UserDetails
+import com.example.littlelemon.model.PreferencesKey
+import com.example.littlelemon.model.User
 import kotlinx.coroutines.flow.map
 
 
@@ -17,25 +17,18 @@ class DataStoreManager (
     val context: Context
 ){
 
-    companion object {
-        val FIRST_NAME = stringPreferencesKey("firstName")
-        val LAST_NAME = stringPreferencesKey("lastName")
-        val EMAIL = stringPreferencesKey("email")
-        val PASSWORD = stringPreferencesKey("password")
-    }
-
-    suspend fun saveToDataStore(userDetails: UserDetails) {
+    suspend fun saveToDataStore(user: User) {
         context.preferenceDataStore.edit {
-            it[FIRST_NAME] = userDetails.firstName
-            it[LAST_NAME] = userDetails.lastName
-            it[EMAIL] = userDetails.email
-            it[PASSWORD] = userDetails.password
+            it[PreferencesKey.FIRST_NAME] = user.firstName
+            it[PreferencesKey.LAST_NAME] = user.lastName
+            it[PreferencesKey.EMAIL] = user.email
+            it[PreferencesKey.PASSWORD] = user.password
         }
     }
 
     fun getFromDataStore () = context.preferenceDataStore.data.map {
-        UserDetails(
-            email = it[EMAIL]?:""
+        User(
+            email = it[PreferencesKey.EMAIL]?:""
         )
     }
 

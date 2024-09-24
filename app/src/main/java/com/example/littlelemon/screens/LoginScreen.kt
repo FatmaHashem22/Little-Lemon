@@ -13,25 +13,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.littlelemon.R
 import com.example.littlelemon.components.ButtonComponent
-import com.example.littlelemon.components.CheckBoxComponent
 import com.example.littlelemon.components.ClickableTextOptionComponent
-import com.example.littlelemon.components.DividerComponent
 import com.example.littlelemon.components.HeaderTextComponent
 import com.example.littlelemon.components.NormalTextComponent
 import com.example.littlelemon.components.PasswordTextFieldComponent
-import com.example.littlelemon.components.TestTextFieldComponent
 import com.example.littlelemon.components.TextFieldComponent
-import com.example.littlelemon.model.LoginViewModel
 import com.example.littlelemon.navigation.Login
 import com.example.littlelemon.navigation.SignUp
-import com.example.littlelemon.ui.theme.charcoal
 import com.example.littlelemon.ui.theme.emailOutlinedIcon
 import com.example.littlelemon.ui.theme.green
-import com.example.littlelemon.ui.theme.profileOutlinedIcon
 import com.example.littlelemon.ui.theme.yellow
 
 @Composable
